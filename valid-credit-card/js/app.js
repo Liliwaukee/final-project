@@ -15,9 +15,10 @@ var evenPlus = 0;
 
 //aquí sacamos numeros impares y los vamos aguardar en la variable odd
 
+
 for(var i = 0; i <16; i++){
-  if(i % 2 === 0){
-     odd = inverse.push(i);
+   if(i % 2 !== 0){
+     odd += parseInt(inverse[i]);
 
   } else if(inverse[i] === 5){
     evenPlus += 1;
@@ -41,9 +42,9 @@ for(var i = 0; i <16; i++){
 
       var ckeckCard = odd + even + evenPlus;
         if(ckeckCard % 10 === 0){
-          return "It´s a valid card";
+          return document.write("It´s a valid card");
         } else {
-          return "Your card isn´t a valid card";
+          return document.write("Your card isn´t a valid card");
   }
     } else {
    return "Debes ingresar 16 digitos para validar tu tarjeta";
@@ -51,3 +52,4 @@ for(var i = 0; i <16; i++){
 }
 
 isValid();
+//4152313059935309
