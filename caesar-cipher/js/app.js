@@ -1,37 +1,62 @@
-//Creamos un promt para recibir la frase del usario y la guardamos en una variable
-var usePhrase = prompt("Ingresa la frase que quieras cifrar o descrifrar");
-
-//Creamos la función cipher
-
 function cipher (){
-  var asciiCode = [];
-  var asciiMasSiete = [];
-  var cifrado = [];
 
-  //acá se saca el código ascii de cada caracter
+var userPhrase = prompt("Ingresa la frase que quieras cifrar");
+var arrayPhrase = userPhrase.split("");
 
-  for (var i = 0; i< usePhrase.length; i+=1){
-    var letters = usePhrase[i].charCodeAt();
-    asciiCode.push(letras);
+var toAscii = [];
+var arrayCipher = [];
+var toAsciiRest = [];
+
+
+for (var i = 0; i< arrayPhrase.length; i++){
+  var letras = arrayPhrase[i].charCodeAt();
+    if(letras < 116){
+      toAscii.push(letras + 7);
+    } else {
+      toAscii.push(letras - 19);
     }
-    console.log(asciiCode);
-/*
-  //aquí adelante los códigos más 7
-
-  for (var i = 0; i< llenar.length; i+=1){
-    var newAscii = llenar[i] + 7
-    asciiMasSiete.push(newAscii);
-    }
-
-    console.log(asciiMasSiete);
-
-  //acá vamos a cifrar el código a césar
-
-    for (var i = 0; i < asciiMasSiete.length; i+=1){
-      var resultado = String.fromCharCode(asciiMasSiete[i]);
-      cifrado.push(resultado);
-    }
-
-  console.log(cifrado);
-*/
 }
+
+for (var j = 0; j < toAscii.length; j++){
+  var result = String.fromCharCode(toAscii[j]);
+      arrayCipher.push(result);
+}
+
+var textCipher = arrayCipher.join("");
+return textCipher;
+
+}
+
+//aquí empieza la función decipher
+
+function decipher (){
+
+var userPhrase = prompt("Ingresa la frase que quieras decifrar");
+var arrayPhrase = userPhrase.split("");
+
+var toAscii = [];
+var arrayCipher = [];
+var toAsciiRest = [];
+
+
+for (var i = 0; i< arrayPhrase.length; i++){
+  var letras = arrayPhrase[i].charCodeAt();
+    if(letras < 104){
+      toAscii.push(letras + 19);
+    } else {
+      toAscii.push(letras - 7);
+    }
+}
+
+for (var j = 0; j < toAscii.length; j++){
+  var result = String.fromCharCode(toAscii[j]);
+      arrayCipher.push(result);
+}
+
+var textCipher = arrayCipher.join("");
+return textCipher;
+
+}
+
+//cipher();
+//decipher ();
