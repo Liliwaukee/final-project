@@ -1,13 +1,19 @@
 //creamos la funciónisValid la cual no tendrá parámetros
 function isValid() {
   var number = prompt("ingresa el numero");//pedimos elnúmero de tarjeta delusuario
+// si hay espacios, no debe seguir la función
+for(var z = 0; z<number.length; z++){
+  if(number[z] === " " || number[z] === "" ){
+    return document.write("No puedes ingresar espacios en blanco");
+  } else {
+
   var cardNumber = number.split(""); //convertimos en array
   var inverse = cardNumber.reverse();//87541... números al revés
 //console.log(inverse);
 //declaramosvariables vacías para después almacenar los resultados
-var odd = 0;
-var even = 0;
-var evenPlus = 0;
+  var odd = 0;
+  var even = 0;
+  var evenPlus = 0;
 
 
 for(var i = 0; i <16; i++){ //aquí sacamos la suma de numeros impares
@@ -40,6 +46,8 @@ var ckeckCard = even + odd + evenPlus;
     } else {
       return document.write("Your card is an invalid card");
     }
+  }
+}
 }
 
 isValid();
