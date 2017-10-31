@@ -1,55 +1,49 @@
-// creamos nuestra function
+var number = prompt("ingresa el numero");
+var cardNumber = number.split("");
+
+
 function isValid() {
 
-// vamos a guardar los datos que ingrese el usuario en una variable
-var numbers = prompt("Ingresa los números de tu tarjeta");
-var cadena = numbers.toString();//convertimos a string
-var newArray = cadena.split("");//convertimos a array
-var inverse = newArray.reverse();// cambiamos el orden de los números
+var inverse = cardNumber.reverse();//87541... números al revés
+//console.log(inverse);
 
-if(inverse.length === 16){ //aquí comprobamos que sea un tarjeta con 16 digitos o no la podrá validar
-
-var odd = 0;
-var even = 0;
-var evenPlus = 0;
-
-//aquí sacamos numeros impares y los vamos aguardar en la variable odd
+var impares = 0;
+var pares = 0;
+var paresMayor = 0;
 
 
-for(var i = 0; i <16; i++){
-   if(i % 2 !== 0){
-     odd += parseInt(inverse[i]);
-
-  } else if(inverse[i] === 5){
-    evenPlus += 1;
-
-  } else if(inverse[i] === 6){
-    evenPlus += 3;
-
-  } else if(inverse[i] === 7){
-    evenPlus += 5;
-
-  } else if(inverse[i] === 8){
-    evenPlus += 7;
-
-  }else if(inverse[i] === 9){
-    evenPlus += 9;
-
-  }else{
-    even = even + (inverse[i] * 2);
+for(var i = 0; i <16; i++){ //aquí sacamos numeros impares
+  if(i % 2 !== 1){
+     impares = impares + parseInt(inverse[i]);
   }
 }
 
-      var ckeckCard = odd + even + evenPlus;
-        if(ckeckCard % 10 === 0){
-          return document.write("It´s a valid card");
-        } else {
-          return document.write("Your card isn´t a valid card");
-  }
+for(var j = 1; j <16; j++){ 
+  if (j % 2 === 1 && parseInt(inverse[j]) <= 4){
+    pares = pares + (parseInt(inverse[j])*2);
+  } else if (j % 2 === 1 && inverse[j] == 5){
+     paresMayor = paresMayor + parseInt(1);
+  } else if (j % 2 === 1 && inverse[j] == 6){
+     paresMayor = paresMayor + parseInt(3);
+  } else if (j % 2 === 1 && inverse[j] == 7){
+     paresMayor = paresMayor + parseInt(5);
+  } else if (j % 2 === 1 && inverse[j] == 8){
+     paresMayor = paresMayor + parseInt(7);
+  } else if (j % 2 === 1 && inverse[j] == 9){
+     paresMayor = paresMayor + parseInt(9);
+  } 
+}
+
+var ckeckCard = impares + pares + paresMayor;
+    if(ckeckCard % 10 === 0){
+      return "It´s a valid card";
     } else {
-   return "Debes ingresar 16 digitos para validar tu tarjeta";
-  }
+      return "Your card is an invalid card"
+    }  
 }
 
 isValid();
+
+
 //4152313059935309
+//4915665457040406
