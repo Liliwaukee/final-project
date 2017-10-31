@@ -1,45 +1,45 @@
-var number = prompt("ingresa el numero");
-var cardNumber = number.split("");
-
-
+//creamos la funciónisValid la cual no tendrá parámetros
 function isValid() {
-
-var inverse = cardNumber.reverse();//87541... números al revés
+  var number = prompt("ingresa el numero");//pedimos elnúmero de tarjeta delusuario
+  var cardNumber = number.split(""); //convertimos en array
+  var inverse = cardNumber.reverse();//87541... números al revés
 //console.log(inverse);
+//declaramosvariables vacías para después almacenar los resultados
+var odd = 0;
+var even = 0;
+var evenPlus = 0;
 
-var impares = 0;
-var pares = 0;
-var paresMayor = 0;
 
-
-for(var i = 0; i <16; i++){ //aquí sacamos numeros impares
+for(var i = 0; i <16; i++){ //aquí sacamos la suma de numeros impares
   if(i % 2 !== 1){
-     impares = impares + parseInt(inverse[i]);
+     odd = odd + parseInt(inverse[i]);
   }
 }
 
-for(var j = 1; j <16; j++){ 
+for(var j = 1; j <16; j++){
+  //sacamos el números pares menores a 4 y multiplicamos por 2
   if (j % 2 === 1 && parseInt(inverse[j]) <= 4){
-    pares = pares + (parseInt(inverse[j])*2);
+    even = even + (parseInt(inverse[j])*2);
+    // de aquí en adelante reasiganamos los valores mayores del
   } else if (j % 2 === 1 && inverse[j] == 5){
-     paresMayor = paresMayor + parseInt(1);
+     evenPlus = evenPlus + parseInt(1);
   } else if (j % 2 === 1 && inverse[j] == 6){
-     paresMayor = paresMayor + parseInt(3);
+     evenPlus = evenPlus + parseInt(3);
   } else if (j % 2 === 1 && inverse[j] == 7){
-     paresMayor = paresMayor + parseInt(5);
+     evenPlus = evenPlus + parseInt(5);
   } else if (j % 2 === 1 && inverse[j] == 8){
-     paresMayor = paresMayor + parseInt(7);
+     evenPlus = evenPlus + parseInt(7);
   } else if (j % 2 === 1 && inverse[j] == 9){
-     paresMayor = paresMayor + parseInt(9);
-  } 
+     evenPlus = evenPlus + parseInt(9);
+  }
 }
-
-var ckeckCard = impares + pares + paresMayor;
+//hacemos la de nuestros numeros pares, pares mayores e impares y comprobamos si son módulo de 10
+var ckeckCard = even + odd + evenPlus;
     if(ckeckCard % 10 === 0){
-      return "It´s a valid card";
+      return document.write("It´s a valid card");
     } else {
-      return "Your card is an invalid card"
-    }  
+      return document.write("Your card is an invalid card");
+    }
 }
 
 isValid();

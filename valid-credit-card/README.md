@@ -17,4 +17,4 @@ Crea una web que pida, por medio de un prompt(), el número de una tarjeta de cr
 13. Regresar un mensaje dependiendo si la tarjeta es válida o no.
 
 ### Diagrama de flujo
-![Diagrama de flujo](http://subefotos.com/ver/?05857069c51ce5b825ddd4ca737f5165o.jpg)
+![Diagrama de flujo](https://www.lucidchart.com/publicSegments/view/0640f9b8-05a3-4b4c-a026-67e9f3e44ed9/image.png)

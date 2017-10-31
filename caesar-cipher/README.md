@@ -20,4 +20,4 @@
 
 
 ## Diagrama de flujo
-![Diagrama de flujo](https://subefotos.com/ver/?32bafcca7738f31a93f731262584af5do.jpg#codigos)
+![Diagrama de flujo](https://www.lucidchart.com/publicSegments/view/cc237e15-2858-47c2-86d7-5dd8ae07a447/image.png)
